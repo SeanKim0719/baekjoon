@@ -6,7 +6,7 @@ BigInteger r = 1;
 BigInteger sum = 0;
 foreach(var item in str)
     {
-        sum += (item - 'a' + 1) * r;
+        sum +=(item - 'a' + 1) * r;
         r *= 31;
     }
-Console.WriteLine(sum);
+Console.WriteLine((sum)%1234567891);
