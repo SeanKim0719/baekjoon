@@ -1,0 +1,2 @@
+var input = Array.ConvertAll(Console.ReadLine().Split(), double.Parse);
+Console.WriteLine(input[2] == input[0] ? 1 : (((input[2] - input[0]) / (input[0] - input[1]) == 0 ? 1 : Math.Ceiling((input[2] - input[0]) / (input[0] - input[1]))) + 1));
