@@ -22,16 +22,8 @@ for(int i = 1; i <= N ; i++)
 
 DFS(V, node, route_DFS, visit_DFS);
 BFS(V, node, route_BFS, visit_BFS);
-foreach(int i in route_DFS)
-{
-    Console.Write(i + " ");
-}
-Console.WriteLine();
-foreach (int i in route_BFS)
-{
-    Console.Write(i + " ");
-}
-
+Console.WriteLine(string.Join(" ",route_DFS));
+Console.WriteLine(string.Join(" ",route_BFS));
 static void DFS(int node, List<int>[] edge, List<int> route, bool[] visit)
 {
     visit[node] = true;
