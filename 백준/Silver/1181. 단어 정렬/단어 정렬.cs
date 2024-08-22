@@ -1,1 +1,1 @@
-int N=int.Parse(Console.ReadLine());var list=new string[N];for(int i=0;i<N;i++)list[i]=(Console.ReadLine());Console.WriteLine(string.Join("\n",list.Distinct().OrderBy(x=>x.Length).ThenBy(x=>x)));
+int N=int.Parse(Console.ReadLine());var s=new string[N];while(N-->0)s[N]=Console.ReadLine();Console.WriteLine(string.Join("\n",s.Distinct().OrderBy(x=>x.Length).ThenBy(x=>x)));
