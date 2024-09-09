@@ -16,7 +16,6 @@ while(l <= r)
             sum += blue[i];
         }
     }
-    if (sum > mid) { cnt++; }
     if(cnt <= m) { r = mid - 1; }
     else { l = mid + 1; }
 }
