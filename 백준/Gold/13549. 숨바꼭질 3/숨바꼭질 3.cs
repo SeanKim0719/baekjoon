@@ -1,5 +1,4 @@
 const int max = 100001;
-const int min = 0;
 var input = Console.ReadLine().Split().Select(int.Parse).ToList();
 var pq = new PriorityQueue<int,int>();
 var visit = Enumerable.Repeat(int.MaxValue, max).ToArray();
@@ -10,7 +9,8 @@ while (pq.Count > 0)
     int point = pq.Dequeue();
     if (point == input[1])
     {
-        break;
+        Console.WriteLine(visit[point]);
+        return;
     }
     if (point * 2 < max && visit[point*2] > visit[point])
     {
@@ -22,10 +22,9 @@ while (pq.Count > 0)
         visit[point+1] = visit[point] + 1;
         pq.Enqueue(point + 1, visit[point+1]);
     }
-    if(point > min && visit[point - 1] > visit[point])
+    if(point > 0 && visit[point - 1] > visit[point])
     {
         visit[point-1] = visit[point] + 1;
         pq.Enqueue(point - 1, visit[point-1]);
     }
 }
-Console.WriteLine(visit[input[1]]);
