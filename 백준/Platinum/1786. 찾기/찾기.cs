@@ -1,9 +1,12 @@
-var str = Console.ReadLine();
-var pattern = Console.ReadLine();
+StreamReader sr = new(new BufferedStream(Console.OpenStandardInput()));
+StreamWriter sw = new(new BufferedStream(Console.OpenStandardOutput()));
+var str = sr.ReadLine();
+var pattern = sr.ReadLine();
 var ans = KMP(str, pattern, Get_Pat(pattern, pattern.Length));
-Console.WriteLine(ans.Item1);
-Console.WriteLine(string.Join(" ",ans.Item2));
-
+sw.WriteLine(ans.Item1);
+sw.WriteLine(string.Join(" ",ans.Item2));
+sr.Close();
+sw.Close();
 static int[] Get_Pat(string pattern,int size)
 {
     var pat = new int[size];
