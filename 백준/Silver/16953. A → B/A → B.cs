@@ -1,10 +1,1 @@
-var input = Console.ReadLine().Split().Select(int.Parse).ToArray();
-int a = input[0], b = input[1];
-int cnt = 1;
-while(b > a)
-{
-    if (b % 2 == 0) { b /= 2; cnt++; }
-    else if (b % 10 == 1) { b /= 10; cnt++; }
-    else break;
-}
-Console.WriteLine((a==b)? cnt:-1);
+var A=Console.ReadLine().Split().Select(int.Parse).ToList();var x=(b:A[1],c:1);while(x.b>A[0])x=x.b%2==0?(x.b/=2,++x.c):x.b%10==1?(x.b/=10,++x.c):(0,x.c);Console.Write(x.b==A[0]?x.c:-1);
