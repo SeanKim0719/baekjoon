@@ -1,0 +1,1 @@
+var i=Console.ReadLine();Console.Write(Convert.ToInt32(i,16));
