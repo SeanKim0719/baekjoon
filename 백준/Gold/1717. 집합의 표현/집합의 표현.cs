@@ -1,5 +1,4 @@
-using System.Xml;
-
+StreamWriter sw = new(Console.OpenStandardOutput());
 var input = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 int n = input[0], m = input[1];
 var set = Enumerable.Range(0, n + 1).ToArray();
@@ -13,9 +12,10 @@ for (int i = 0; i < m; i++)
     }
     else
     {
-        Console.WriteLine(Find(ope[1]) == Find(ope[2]) ? "YES" : "NO");
+        sw.WriteLine(Find(ope[1]) == Find(ope[2]) ? "YES" : "NO");
     }
 }
+sw.Close();
 int Find(int x)
 {
     if (set[x] == x)
