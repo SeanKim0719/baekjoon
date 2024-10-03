@@ -6,8 +6,8 @@ var ans = (liq[l], liq[r]);
 while (l < r)
 {
     int sum = liq[l] + liq[r];
-    if (sum == 0) { ans = (liq[l], liq[r]); break; }
     if (Math.Abs(sum) < Math.Abs(min)) { ans = (liq[l], liq[r]); min = sum; }
+    if (sum == 0) {  break; }
     if(sum < 0) { l++; }
     else { r--; }
 }
