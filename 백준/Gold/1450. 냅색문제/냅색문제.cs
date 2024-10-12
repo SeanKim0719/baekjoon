@@ -1,6 +1,6 @@
-var input = Array.ConvertAll(Console.ReadLine().Split(), long.Parse);
-long n = input[0], c = input[1];
-var items = Console.ReadLine().Split().Select(long.Parse).ToArray();
+var input = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+int n = input[0], c = input[1];
+var items = Console.ReadLine().Split().Select(int.Parse).ToArray();
 int mid = items.Length / 2;
 var items_left = items[0..mid];
 var items_right = items[mid..items.Length];
@@ -12,7 +12,7 @@ foreach (var num in items_left)
     var new_sums = new List<long>();
     foreach (var sum in sums_left)
     {
-        new_sums.Add(num + sum);
+        if (sum + num <= c) { new_sums.Add(num + sum); }
     }
     sums_left.AddRange(new_sums);
 }
@@ -21,7 +21,7 @@ foreach (var num in items_right)
     var new_sums = new List<long>();
     foreach (var sum in sums_right)
     {
-        new_sums.Add(num + sum);
+        if (sum + num <= c) { new_sums.Add(num + sum); }
     }
     sums_right.AddRange(new_sums);
 }
