@@ -1,0 +1,1 @@
+Console.WriteLine(Math.Abs(Console.ReadLine().Split().Select(long.Parse).Aggregate((min,x) => min -= x)));
