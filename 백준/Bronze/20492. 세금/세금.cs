@@ -1,0 +1,1 @@
+Console.ReadLine().Split().Select(int.Parse).Select(x=>(x*78/100,x/5*78/100+x/5*4)).ToList().ForEach(ans => Console.Write($"{ans.Item1} {ans.Item2}"));
