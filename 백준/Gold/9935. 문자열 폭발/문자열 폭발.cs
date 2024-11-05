@@ -1,14 +1,1 @@
-using System.Text;
-string str = Console.ReadLine();
-string burst = Console.ReadLine();
-var sb = new StringBuilder();
-foreach (char c in str)
-{
-    sb.Append(c);
-    if(sb.Length >= burst.Length)
-    {
-        var temp = sb.ToString(sb.Length-burst.Length,burst.Length);
-        if(temp == burst) { sb.Remove(sb.Length - burst.Length, burst.Length); }
-    }   
-}
-Console.WriteLine(sb.Length == 0? "FRULA":sb.ToString());
+using System.Text;var w=Console.ReadLine;string s=w(),b=w();var r=new StringBuilder();foreach (char c in s){r.Append(c);if(r.Length>=b.Length&&r.ToString(r.Length-b.Length,b.Length)==b)r.Length-=b.Length;}Console.Write(r.Length==0?"FRULA":r.ToString());
