@@ -9,21 +9,9 @@ for(int i = 0; i < n; i++)
     var input = Console.ReadLine().Split().Select(int.Parse).ToList();
     planet.Add((input[0], input[1],input[2],i+1));
 }
-planet = planet.OrderBy(x => x.x).ToList();
-for(int i = 1; i < n; i++)
-{
-    pq.Enqueue((planet[i].x - planet[i-1].x, planet[i - 1].num, planet[i].num), planet[i].x - planet[i-1].x);
-}
-planet = planet.OrderBy(x => x.y).ToList();
-for (int i = 1; i < n; i++)
-{
-    pq.Enqueue((planet[i].y - planet[i-1].y, planet[i - 1].num, planet[i].num), planet[i].y - planet[i - 1].y);
-}
-planet = planet.OrderBy(x=>x.z).ToList();
-for (int i = 1; i < n; i++)
-{
-    pq.Enqueue((planet[i].z - planet[i - 1].z, planet[i - 1].num, planet[i].num), planet[i].z - planet[i - 1].z);
-}
+AddEdges(planet,pq,p=>p.x);
+AddEdges(planet,pq,p=>p.y);
+AddEdges(planet,pq,p=>p.z);
 while (cnt < n-1)
 {
     var get = pq.Dequeue();
@@ -46,4 +34,14 @@ void Union(int x,int y)
     if (rank[x] > rank[y]) { root[y] = x; }
     else if (rank[x] < rank[y]) { root[x] = y; }
     else { root[y] = x; rank[x]++; }
+}
+void AddEdges(List<(int x, int y, int z, int num)> planets, PriorityQueue<(int gap, int first, int second), int> pq,
+              Func<(int x, int y, int z, int num), int> selector)
+{
+    planets.Sort((a, b) => selector(a).CompareTo(selector(b)));
+    for (int i = 1; i < planets.Count; i++)
+    {
+        int gap = selector(planets[i]) - selector(planets[i - 1]);
+        pq.Enqueue((gap, planets[i - 1].num, planets[i].num), gap);
+    }
 }
